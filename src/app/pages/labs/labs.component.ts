@@ -15,4 +15,7 @@ export class LabsComponent {
     'Crear proyecto',
     'Crear componentes'
   ]
+  name = 'David'
+  age = '32'
+  private ages = '32' // Solo funciona dentro de la clase
 }
