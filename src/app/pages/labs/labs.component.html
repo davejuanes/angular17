@@ -29,8 +29,16 @@
   <input type="text" [value]="person.name" (keydown)="keydownHandler($event)" />
   <p>(keydown shift + t)</p>
   <input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()" />
-  <hr>
+  <hr />
   <h1>Signals</h1>
   <p>name: {{ nameSignal() }}</p>
   <input type="text" [value]="nameSignal()" (change)="changeHandler($event)" />
+  <hr />
+  <h1>Directivas de control</h1>
+  <p>Total: {{ tasksSignal().length }}</p>
+  <ul>
+    <li *ngFor="let task of tasksSignal(); index as i">
+      {{ i }}{{ task }}
+    </li>
+  </ul>
 </div>

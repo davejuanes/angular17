@@ -40,4 +40,9 @@ export class LabsComponent {
     const input = event.target as HTMLInputElement
     console.log(input.value);
   }
+  tasksSignal = signal([
+    'Instalar Angular CLI',
+    'Crear proyecto',
+    'Crear componentes'
+  ])
 }
