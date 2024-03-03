@@ -14,4 +14,15 @@ export class HomeComponent {
     'Crear proyecto',
     'Crear componentes'
   ])
+
+  changeHandler(event: Event) {
+    const input = event.target as  HTMLInputElement
+    const newTask = input.value
+    this.tasksSignal.update((tasksSignal) => [...tasksSignal, newTask]) // No mutar sino crear nuevos estados
+    // {{  }} Strign interpolation
+    // ... Spread operator
+  }
+  deleteTask(index: number) {
+    this.tasksSignal.update((tasksSignal) => tasksSignal.filter((task, position) => position !== index))
+  }
 }
