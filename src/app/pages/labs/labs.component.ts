@@ -18,4 +18,12 @@ export class LabsComponent {
   name = 'David'
   age = '32'
   private ages = '32' // Solo funciona dentro de la clase
+  disabled = true
+  img = 'https://w3schools.com/howto/img_avatar.png'
+
+  person = {
+    name: 'Dave Juanes',
+    age: 18,
+    avatar: 'https://w3schools.com/howto/img_avatar.png'
+  }
 }

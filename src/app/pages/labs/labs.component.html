@@ -10,5 +10,9 @@
 <p> la suma de 3 + 3 es {{ 3+3 }} </p>
 <p>Hola soy {{ name }} y mi edad es {{ age }}</p>
 <hr />
-<img src="" alt="">
-<input type="text">
+<img [src]="img" alt="">
+<input type="text" [value]="name">
+<button [disabled]="disabled">Click me!</button>
+<p>Person: {{ person.name }}</p>
+<img [src]="person.avatar" alt="">
+<p>Age: {{ person.age }}</p>
