@@ -1,0 +1,13 @@
+version: '3'
+networks:
+  backend:
+    external: true
+
+services:
+  yedy-ui:
+    hostname: frontendv1
+    image: angu17:v1
+    ports:
+      - '80:80'
+    networks:
+      backend:

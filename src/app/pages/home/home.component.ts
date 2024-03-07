@@ -46,12 +46,17 @@ export class HomeComponent {
     }
     this.tasksSignal.update((tasksSignal) => [...tasksSignal, newTask])
   }
-  completedTask(id: number) {
-    const taskToUpdate = this.tasksSignal.update(task => task.id === id);
-
-    const task = this.tasksSignal.update((this.tasksSignal.id == id) => task.completed.update = true)
-
-    console.log(task);
+  completedTask(index: number) {
+    this.tasksSignal.update((value) =>
+      value.map((task, position) => {
+        if (position === index)
+          return {
+            ...task,
+            completed: !task.completed,
+          };
+        return task;
+      })
+    );
   }
   deleteTask(index: number) {
     this.tasksSignal.update((tasksSignal) => tasksSignal.filter((task, position) => position !== index))
