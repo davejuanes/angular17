@@ -53,4 +53,13 @@
   <ng-template #elseBlock>
     Soy dave y soy menor de 18
   </ng-template>
+  <hr />
+  <h2>Ng Switch</h2>
+  <input type="text" [value]="person.name" (change)="changeName($event)" />
+  <div [ngSwitch]="person().name">
+    <p *ngSwitchCase="'Dave'">Yo soy Dave</p>
+    <p *ngSwitchCase="'Dave Juanes'">Yo soy Dave Juanes</p>
+    <p *ngSwitchCase="'Juanes'">Yo soy Juanes</p>
+    <p *ngSwitchDefault>No cumple con las propiedades</p>
+  </div>
 </div>
