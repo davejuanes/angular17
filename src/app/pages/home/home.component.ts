@@ -39,7 +39,13 @@ export class HomeComponent {
 
   // taskCtrl = new FormControl()
 
-  injector = inject(Injector);
+  // injector = inject(Injector);
+
+  constructor() {
+    effect(() => {
+      localStorage.setItem('tasks', JSON.stringify(this.tasksSignal()));
+    });
+  }
 
   ngOnInit()
   {
@@ -57,7 +63,7 @@ export class HomeComponent {
       const tasks = this.tasksSignal()
       console.log(tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks))
-    }, { injector: this.injector })
+    }/* , { injector: this.injector } */)
   }
 
   changeHandler() {
