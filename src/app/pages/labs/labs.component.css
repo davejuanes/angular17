@@ -4,3 +4,8 @@
 button {
     margin: 1px solid #000;
 }
+.box {
+    height: 10px;
+    display: block;
+    background-color: red;
+}

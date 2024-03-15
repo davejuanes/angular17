@@ -66,4 +66,12 @@
   <h2>Manejo de formularios</h2>
   <input type="color" [formControl]="colorCtrl">
   <p>Color: {{ colorCtrl.value }}</p>
+
+  <svg>
+    <g>
+      <rect x="0" y="0" height="500" width="500" [attr.fill]="colorCtrl.value"/> 
+    </g>
+  </svg>
+  <input type="number" [formControl]="widthCtrl">
+  <span class="box" [style.width.px]="widthCtrl.value"></span>
 </div>
