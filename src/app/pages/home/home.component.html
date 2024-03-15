@@ -23,14 +23,19 @@
       </pre> -->
       <section class="main">
         <ul class="todo-list">
-          <li *ngFor="let task of tasksSignal(); index as i" [class.completed]="task.completed">
+          <li
+            *ngFor="let task of tasksSignal(); index as i"
+            [class.completed]="task.completed"
+            (dblclick)="updateTaskEditingMode(i)"
+            [class.editing]="task.editing"
+          >
             <div class="view">
               <input class="toggle" type="checkbox" [checked]="task.completed" (change)="updateTask(i)" />
               <!-- <input class="toggle" type="checkbox" (click)="completedTask(task.id)" [checked]="task.completed"/> -->
               <label>{{ task.title }}</label>
               <button class="destroy" (click)="deleteTask(i)"></button>
             </div>
-            <input class="edit" value="Learn JavaScript" />
+            <input class="edit" (keydown.enter)="updateTaskText(i, $event)" [value]="task.title" />
           </li>
           <!-- <li class="completed">
             <div class="view">

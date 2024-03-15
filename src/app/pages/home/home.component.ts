@@ -39,6 +39,8 @@ export class HomeComponent {
     ]
   });
 
+  taskCtrl = new FormControl()
+
   changeHandler() {
     if (this.newTaskCtrl.valid) {
       // const value = this.newTaskCtrl.value.trim()
@@ -88,6 +90,39 @@ export class HomeComponent {
           return {
             ...task,
             completed: !task.completed
+          }
+        }
+        return task;
+      })
+    })
+  }
+
+  updateTaskEditingMode(index: number) {
+    this.tasksSignal.update((tasks) => {
+      return tasks.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            editing: true
+          }
+        }
+        return {
+          ...task,
+          editing: false
+        };
+      })
+    })
+  }
+  
+  updateTaskText(index: number, event: Event) {
+    const input = event.target as HTMLInputElement
+    this.tasksSignal.update((tasks) => {
+      return tasks.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            title: input.value,
+            editing: false
           }
         }
         return task;
