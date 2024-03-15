@@ -23,7 +23,7 @@
       </pre> -->
       <section class="main">
         <ul class="todo-list">
-          <li *ngFor="let task of tasksSignal(); index as i">
+          <li *ngFor="let task of tasksSignal(); index as i" [class.completed]="task.completed">
             <div class="view">
               <input class="toggle" type="checkbox" [checked]="task.completed" (change)="updateTask(i)" />
               <!-- <input class="toggle" type="checkbox" (click)="completedTask(task.id)" [checked]="task.completed"/> -->
