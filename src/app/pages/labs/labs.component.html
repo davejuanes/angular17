@@ -62,4 +62,8 @@
     <p *ngSwitchCase="'Juanes'">Yo soy Juanes</p>
     <p *ngSwitchDefault>No cumple con las propiedades</p>
   </div>
+  <hr>
+  <h2>Manejo de formularios</h2>
+  <input type="color" [formControl]="colorCtrl">
+  <p>Color: {{ colorCtrl.value }}</p>
 </div>
